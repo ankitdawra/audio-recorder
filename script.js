@@ -7,7 +7,13 @@ var input;
 //holds selected encoding for resulting audio (file)
 var encodeAfterRecord = true;
 // when to encode
-var audioContext = new AudioContext();
+var audioContext;
+//  = new AudioContext();
+if(window.AudioContext) {
+  audioContext = new AudioContext();
+} else {
+  audioContext = new window.webkitAudioContext();
+}
 //new audio context to help us record
 var encodingTypeSelect = document.getElementById("encodingTypeSelect");
 var recordButton = document.getElementById("recordButton");
