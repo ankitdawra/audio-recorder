@@ -56,7 +56,11 @@ function startRecording() {
 			the sampleRate defaults to the one set in your OS for your playback device
 
 		*/
-      audioContext = new AudioContext();
+      if(window.AudioContext) {
+        audioContext = new window.AudioContext();
+      } else {
+        audioContext = new window.webkitAudioContext();
+      }
       console.log(audioContext);
 
       console.log("recorder1");
