@@ -10,7 +10,7 @@ var encodeAfterRecord = true;
 var audioContext;
 //  = new AudioContext();
 if(window.AudioContext) {
-  audioContext = new AudioContext();
+  audioContext = new window.AudioContext();
 } else {
   audioContext = new window.webkitAudioContext();
 }
