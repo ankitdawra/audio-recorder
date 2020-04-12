@@ -86,20 +86,21 @@ function startRecording() {
       //disable the encoding selector
       // encodingTypeSelect.disabled = true;
       console.log("recorder3");
-    
-      recorder = new WebAudioRecorder(input, {
-        workerDir: "js/", // must end with slash
-        encoding: encodingType,
-        numChannels: 2, //2 is the default, mp3 encoding supports only 2
-        onEncoderLoading: function (recorder, encoding) {
-          // show "loading encoder..." display
-          __log("Loading " + encoding + " encoder...");
-        },
-        onEncoderLoaded: function (recorder, encoding) {
-          // hide "loading encoder..." display
-          __log(encoding + " encoder loaded");
-        }
-      });
+      
+      recorder = new WebAudioRecorder();
+      // recorder = new WebAudioRecorder(input, {
+      //   workerDir: "js/", // must end with slash
+      //   encoding: encodingType,
+      //   numChannels: 2, //2 is the default, mp3 encoding supports only 2
+      //   onEncoderLoading: function (recorder, encoding) {
+      //     // show "loading encoder..." display
+      //     __log("Loading " + encoding + " encoder...");
+      //   },
+      //   onEncoderLoaded: function (recorder, encoding) {
+      //     // hide "loading encoder..." display
+      //     __log(encoding + " encoder loaded");
+      //   }
+      // });
       console.log(recorder);
     
       // recorder = new WebAudioRecorder();
