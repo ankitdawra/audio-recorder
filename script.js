@@ -88,41 +88,44 @@ function startRecording() {
       console.log("recorder3");
       
       // recorder = new WebAudioRecorder();
-      recorder = new WebAudioRecorder(input, {
-        workerDir: "lib/", // must end with slash
-        encoding: encodingType,
-        numChannels: 2, //2 is the default, mp3 encoding supports only 2
-        onEncoderLoading: function (recorder, encoding) {
-          // show "loading encoder..." display
-          __log("Loading " + encoding + " encoder...");
-        },
-        onEncoderLoaded: function (recorder, encoding) {
-          // hide "loading encoder..." display
-          __log(encoding + " encoder loaded");
-        }
-      });
-      console.log(recorder);
+      // recorder = new WebAudioRecorder(input, {
+      //   workerDir: "lib/", // must end with slash
+      //   encoding: encodingType,
+      //   numChannels: 2, //2 is the default, mp3 encoding supports only 2
+      //   onEncoderLoading: function (recorder, encoding) {
+      //     // show "loading encoder..." display
+      //     __log("Loading " + encoding + " encoder...");
+      //   },
+      //   onEncoderLoaded: function (recorder, encoding) {
+      //     // hide "loading encoder..." display
+      //     __log(encoding + " encoder loaded");
+      //   }
+      // });
+      // console.log(recorder);
     
-      // recorder = new WebAudioRecorder();
-      console.log("recorder4");
+      // // recorder = new WebAudioRecorder();
+      // console.log("recorder4");
 
-      recorder.onComplete = function (recorder, blob) {
-        __log("Encoding complete");
-        createDownloadLink(blob, recorder.encoding);
-        encodingTypeSelect.disabled = false;
-      };
+      // recorder.onComplete = function (recorder, blob) {
+      //   __log("Encoding complete");
+      //   createDownloadLink(blob, recorder.encoding);
+      //   encodingTypeSelect.disabled = false;
+      // };
 
-      recorder.setOptions({
-        timeLimit: 120,
-        encodeAfterRecord: encodeAfterRecord,
-        ogg: { quality: 0.5 },
-        mp3: { bitRate: 160 }
-      });
+      // recorder.setOptions({
+      //   timeLimit: 120,
+      //   encodeAfterRecord: encodeAfterRecord,
+      //   ogg: { quality: 0.5 },
+      //   mp3: { bitRate: 160 }
+      // });
 
-      //start the recording process
-      recorder.startRecording();
+      // //start the recording process
+      // recorder.startRecording();
 
       __log("Recording started");
+
+      stopButton.disabled = true;
+      recordButton.disabled = false;
     })
     .catch(function (err) {
       //enable the record button if getUSerMedia() fails
